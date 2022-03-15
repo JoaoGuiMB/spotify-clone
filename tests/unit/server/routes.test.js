@@ -8,7 +8,7 @@ const {
   constants: { CONTENT_TYPE },
 } = config;
 import { handler } from "../../../server/routes";
-import TestUtil from "../_util/testUtil";
+import TestUtil from "../__util__/testUtil";
 
 describe("#Routes - test site for api response", () => {
   beforeEach(() => {

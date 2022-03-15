@@ -12,6 +12,7 @@ const defaultConfig = {
   },
   maxWorkers: "50%",
   watchPathIgnorePatterns: ["node_modules"],
+  coveragePathIgnorePatterns: ["node_modules", "__util__"],
   transformIgnorePatterns: ["node_modules"],
 };
 
