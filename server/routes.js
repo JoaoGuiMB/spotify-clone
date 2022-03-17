@@ -7,6 +7,8 @@ const {
   pages: { homeHTML, controllerHTML },
   constants: { CONTENT_TYPE },
 } = config;
+import { once } from "events";
+
 const controller = new Controller();
 
 async function routes(request, response) {
@@ -32,8 +34,27 @@ async function routes(request, response) {
     return stream.pipe(response);
   }
 
-  //files
+  if (method === "GET" && url.includes("/stream")) {
+    const { stream, onClose } = controller.createClientStream();
+    request.once("close", onClose);
+    response.writeHead(200, {
+      "Content-Type": "audio/mpeg",
+      "Accept-Rages": "bytes",
+    });
 
+    return stream.pipe(response);
+  }
+
+  if (method === "POST" && url === "/controller") {
+    const data = await once(request, "data");
+    const item = JSON.parse(data);
+
+    const result = await controller.handleCommand(item);
+
+    return response.end(JSON.stringify(result));
+  }
+
+  //files
   if (method === "GET") {
     const { stream, type } = await controller.getFileStream(url);
     const contentType = CONTENT_TYPE[type];
