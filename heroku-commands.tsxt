@@ -1,0 +1,6 @@
+heroku.yml
+npm i -g heroku
+heroku login
+
+git init
+npx gitignore node

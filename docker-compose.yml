@@ -33,9 +33,7 @@ services:
         - npm
         - run
         - test:coverage
-      volumes:
-        - .:/spotify-radio
-         - node_modules:/spotify-radio/node_modules
+      
   test-watch: 
       image: spotify-radio
       build: .

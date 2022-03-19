@@ -48,7 +48,6 @@ async function routes(request, response) {
   if (method === "POST" && url === "/controller") {
     const data = await once(request, "data");
     const item = JSON.parse(data);
-
     const result = await controller.handleCommand(item);
 
     return response.end(JSON.stringify(result));

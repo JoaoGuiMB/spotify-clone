@@ -27,10 +27,11 @@ export default {
     CONTENT_TYPE: {
       ".html": "text/html",
       ".css": "text/css",
-      ".js": "text/javascipt",
+      ".js": "text/javascript",
     },
     audioMediaType: "mp3",
-    sonvVolume: "0.99",
+    songVolume: "0.99",
+    fxVolume: "0.1",
     fallbackBitRate: "128000",
     bitRateDivisor: 8,
     englishCoversation: join(songsDirectory, "conversation.mp3"),
