@@ -12,3 +12,4 @@ git commit -m "feat: finish project"
 heroku apps:create spotify-radio-joaoguimb
 heroku stack:set container
 git push heroku master
+heroku open
